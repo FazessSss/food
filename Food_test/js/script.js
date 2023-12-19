@@ -112,3 +112,29 @@ next.addEventListener('click', ()=>{
 prev.addEventListener('click', ()=>{
     plusSlide(-1)
 })
+// timer
+const timeEnd = '2024-02-19';
+ 
+function getTimeRemaining(endTime){
+    const t = Date.parse(endTime) - Date.parse(new Date()),
+    days = Math.floor(t/(1000*60*60*24)),
+    hours = Math.floor((t/(1000*60*60))%24),
+    minuties = Math.floor((t/(1000*60))%60),
+    seconds = Math.floor((t/(1000))%60);
+    return{
+        'total':t,
+        'days':days,
+        'hours':hours,
+        'minuties':minuties,
+        'seconds':seconds,
+    }
+}
+function setClock(selector,endTime){
+    const timer = document.querySelector(selector),    
+        days = document.querySelector('#days'),
+        hours = document.querySelector('#hours'),
+        minuties = document.querySelector('minutes'),
+        seconds = document.querySelector('#seconds');
+
+}
+
