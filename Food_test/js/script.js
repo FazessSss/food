@@ -69,7 +69,7 @@ document.addEventListener('keydown', (event)=>{
 
 
 //slider
-const slides = document.querySelectorAll('.offer__slider'),
+const slides = document.querySelectorAll('.offer__slide'),
 prev = document.querySelector('.offer__slider-prev'),
 next = document.querySelector('.offer__slider-next'),
 total = document.querySelector('#total'),
