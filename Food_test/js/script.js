@@ -119,22 +119,40 @@ function getTimeRemaining(endTime){
     const t = Date.parse(endTime) - Date.parse(new Date()),
     days = Math.floor(t/(1000*60*60*24)),
     hours = Math.floor((t/(1000*60*60))%24),
-    minuties = Math.floor((t/(1000*60))%60),
+    minutes = Math.floor((t/(1000*60))%60),
     seconds = Math.floor((t/(1000))%60);
     return{
         'total':t,
         'days':days,
         'hours':hours,
-        'minuties':minuties,
+        'minutes':minutes,
         'seconds':seconds,
     }
 }
-function setClock(selector,endTime){
+function setClock(selector,endtime){
     const timer = document.querySelector(selector),    
         days = document.querySelector('#days'),
         hours = document.querySelector('#hours'),
-        minuties = document.querySelector('minutes'),
+        minutes = document.querySelector('#minutes'),
         seconds = document.querySelector('#seconds');
+        timeInterval = setInterval(updateClock,1000);
+        updateClock();
+        function updateClock(){
+            const t = getTimeRemaining(endtime);
+            days.innerHTML = t.days;
+            hours.innerHTML = t.hours;
+            minutes.innerHTML = t.minutes;
+            seconds.innerHTML = t.seconds;
+            if(t.total<=0){
+                clearInterval(timeInterval);
+                days.innerHTML = "00";
+                hours.innerHTML = "00";
+                minutes.innerHTML = "00";
+                seconds.innerHTML = "00";
+            }
+        }
+    }
+    setClock('.timer',timeEnd);
 
-}
+
 
